@@ -1,0 +1,200 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg"
+    tools:context="com.example.dealdoc.fragments.fragment_draft_questions_list">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageViewDraft"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.10"
+            app:srcCompat="@drawable/dollar" />
+
+        <TextView
+            android:id="@+id/textViewDraft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DealDoc"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.14"
+            app:layout_constraintStart_toStartOf="@id/imageViewDraft"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.10" />
+
+        <ImageView
+            android:id="@+id/IVBackBtnDraft"
+            android:layout_width="35dp"
+            android:layout_height="25dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDraft"
+            app:layout_constraintVertical_bias="0.05"
+            app:srcCompat="@drawable/arrow_back" />
+
+        <Switch
+            android:id="@+id/switch1Draft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No's Only"
+            android:textColor="@color/white"
+            android:thumbTint="@color/white"
+            android:trackTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.901"
+            app:layout_constraintStart_toEndOf="@+id/IVBackBtnDraft"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDraft"
+            app:layout_constraintVertical_bias="0.059" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/QuestionCategoryLayoutDraft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_radius_with_color"
+            android:padding="16dp"
+            android:weightSum="1"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IVBackBtnDraft"
+            app:layout_constraintVertical_bias="0.049"
+            tools:layout_editor_absoluteX="16dp">
+
+            <TextView
+                android:id="@+id/DealQuestionCategoryNameDraft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="208dp"
+                android:text="Category Name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/DealQuestionCounterDraft"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="1/8"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.97"
+                app:layout_constraintStart_toEndOf="@+id/DealQuestionCategoryNameDraft"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deal_Questions_Category_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/border_radius_with_color_questions"
+        android:weightSum="1"
+        app:layout_constraintTop_toBottomOf="@+id/QuestionCategoryLayoutDraft">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/deal_Questions_Category_PVDraft"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></androidx.viewpager.widget.ViewPager>
+
+        <Button
+            android:id="@+id/Previousbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/arrow_back"
+            android:text="Previous"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deal_Questions_Category_PVDraft"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/Nextbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/arrow_forward"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/Previousbtn"
+            app:layout_constraintTop_toBottomOf="@+id/deal_Questions_Category_PVDraft"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/SaveDealbtnDraft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="12dp"
+            android:text="Save Deal"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deal_Questions_Category_Layout"
+            app:layout_constraintVertical_bias="0.062" />
+
+        <ImageButton
+            android:id="@+id/Finishbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="40dp"
+            android:textColor="@color/white"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="4dp"
+            android:visibility="invisible"
+            android:background="@drawable/finish_btn_background"
+            android:src="@drawable/arrow_forward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SaveDealbtnDraft"
+            app:layout_constraintVertical_bias="0.20" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

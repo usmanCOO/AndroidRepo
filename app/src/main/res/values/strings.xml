@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DealDoc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    <string name="term">Terms &amp; conditions</string>-->
+    <string name="term"><a href="https://admin.dealdoc.app/terms&amp;conditions"><font color="#0000FF">Terms &amp; conditions</font></a></string>
+    <string name="policy"><a href="https://admin.dealdoc.app/privacypolicy"><font color="#0000FF">privacy policy</font></a></string>
+    <string name="TermToUse"><a href="https://admin.dealdoc.app/termsofuse"><font color="#FFFFFF">Term To Use</font></a></string>
+    <string name="sendinbox">Delete</string>
+    <string-array name="sortBy">
+        <item>Size</item>
+        <item>Deal Name</item>
+        <item>Color</item>
+        <item>Close Date</item>
+        <item>Updated Date</item>
+    </string-array>
+</resources>

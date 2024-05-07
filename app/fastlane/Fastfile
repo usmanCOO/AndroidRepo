@@ -1,0 +1,47 @@
+PACKAGE_NAME = "com.medpicc.dealdoc"
+UPDATED_VERSION_CODE = nil
+
+before_all do
+  #KEYSTORE_PATH = Dir.pwd + "/../app/keystore.jks"
+  PLAYSTORE_KEY_PATH = Dir.pwd + "/../google-play-api.json"
+  TRACK = "internal"
+  VERSION = nil
+ end
+
+default_platform(:android)
+platform :android do
+  
+  lane :build_and_distribute do
+  increment_version_code_in_project_gradle()
+  upload_production()
+end
+
+desc "Responsible for fetching version code from play console and incrementing version code."
+lane :increment_version_code_in_project_gradle do
+  version_code_from_play_store_strings = google_play_track_version_codes(
+    package_name: PACKAGE_NAME,   # PACKAGE_NAME is a global variable defined earlier
+    track: TRACK,            # this can be alpha, beta etc.
+    json_key: PLAYSTORE_KEY_PATH,
+  )
+  version_code_from_play_store = version_code_from_play_store_strings[0].to_i
+  incremented_version_code = version_code_from_play_store + 1
+  increment_version_code(
+    gradle_file_path: Dir.pwd + "/../app/build.gradle",
+    version_code: incremented_version_code.to_i
+  )
+end
+desc "Submit a new Production Build to Play Store"
+  lane :upload_production do
+    gradle(
+      task: "bundle",
+      build_type: 'release') # compile a release bundle application app.aab
+    upload_to_play_store(
+      track: TRACK, # beta , closed beta, production, 
+      skip_upload_apk: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+      )
+end
+
+end
